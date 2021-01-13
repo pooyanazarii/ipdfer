@@ -8,6 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itextpdf.text.Document;
@@ -24,18 +28,22 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Random rand  = new Random();
+    Button btnCon;
+    EditText myText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Calendar rightNow = Calendar.getInstance();
+        btnCon = findViewById(R.id.btn_con);
+        myText = findViewById(R.id.ed_txt);
+        btnCon.setOnClickListener(this);
 
 
-        createAndDisplayPDF("POOYA NAZARI IS A ANDROID DEVELOPER");
+
     }
 
     public void createAndDisplayPDF (String mytext){
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "File is ready", Toast.LENGTH_SHORT).show();
         }
         Toast.makeText(this, "File is ready", Toast.LENGTH_SHORT).show();
-        viewPdf("sample.pdf");
+       // viewPdf("sample.pdf");
 
     }
 
@@ -89,6 +97,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Can't read pdf File", Toast.LENGTH_SHORT).show();
             Log.e("---------ActivityErr",""+e);
         }
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        String texts = myText.getText().toString();
+        createAndDisplayPDF(texts);
 
     }
 }
