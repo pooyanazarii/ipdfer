@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -105,5 +107,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String texts = myText.getText().toString();
         createAndDisplayPDF(texts);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("IMG TO PDF").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }
