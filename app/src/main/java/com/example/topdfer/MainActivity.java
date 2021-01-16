@@ -114,7 +114,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu.add("IMG TO PDF").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-
+                startActivity(new Intent(MainActivity.this,ImgPdfActivity.class));
+                return false;
+            }
+        });
+        menu.add("IMG TO PDF").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(MainActivity.this,ImgToPDF2.class));
                 return false;
             }
         });
